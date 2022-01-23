@@ -18,7 +18,7 @@ If you set the value `download=True`, the bounding boxes and the indices of `ima
 
 # Restarting from the scratch
 Downloading:
-First download the data from [https://image-net.org/data/bboxes_annotations.tar.gz](here):
+First download the data from [here](https://image-net.org/data/bboxes_annotations.tar.gz):
 ```bash
 wget "https://image-net.org/data/bboxes_annotations.tar.gz"
 ```
