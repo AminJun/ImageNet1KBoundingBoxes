@@ -1,7 +1,17 @@
 # ImageNet 1K Bounding Boxes
 For some experiments, you might wanna pass only the `background` of imagenet images vs passing only the foreground. Here, I've included the code to extract the meta-data for the bounding box, cleaning up the the downloaded stuff, and then changing ImageNet Loader to support only the images that have box annotations. 
 
+# How to use:
+```python
+tr = trans.Compose([trans.Resize(224), trans.CenterCrop(224), trans.ToTensor(), ])
+dataset = BackgroundForegroundImageNet(root='./data/imagenet/train', download=True, transform=tr)
+x, b, f, y = dataset[0]
+torchvision.utils.save_image(torch.stack([x, b, f]), 'test1.png')
+```
 
+# Example:
+![Test1](/examples/test1.png)
+![Test2](/examples/test2.png)
 
 # Restarting from the scratch
 Downloading:
