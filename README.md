@@ -3,7 +3,6 @@ For some experiments, you might wanna pass only the `background` of imagenet ima
 
 
 
-
 # Restarting from the scratch
 Downloading:
 First download the data from [https://image-net.org/data/bboxes_annotations.tar.gz](here):
@@ -31,4 +30,14 @@ Clean the extra 50GB extracted files:
 ```
 rm *.tar.gz
 ls | grep "n.*" | while read f ; do rm -rf "${f}"  ; done 
+```
+
+Get Indices that have bounding boxes:
+```
+python get_indices.py 
+```
+
+Then simply use pass the files `boxes.pt` and `indices.pt` to your `BackgroundForegroundImageNet` constructor
+```
+dataset = BackgroundForegroundImageNet(root='.', download=False, boxes='boxes.pt', indices='indices.pt')
 ```
