@@ -14,6 +14,8 @@ torchvision.utils.save_image(torch.stack([x, b, f]), 'test1.png')
 ![Test1](/examples/test1.png)
 ![Test2](/examples/test2.png)
 
+If you set the value `download=True`, the bounding boxes and the indices of `imagenet` train split that have the bounding boxes will be downloaded. But if for some reason you want to create your own bounding boxes from the scratch, here's the steps for doing it: 
+
 # Restarting from the scratch
 Downloading:
 First download the data from [https://image-net.org/data/bboxes_annotations.tar.gz](here):
@@ -48,7 +50,7 @@ Get Indices that have bounding boxes:
 python get_indices.py 
 ```
 
-Then simply use pass the files `boxes.pt` and `indices.pt` to your `BackgroundForegroundImageNet` constructor
+Then simply pass the path to the files `boxes.pt` and `indices.pt` to your `BackgroundForegroundImageNet` constructor
 ```python 
 dataset = BackgroundForegroundImageNet(root='.', download=False, boxes='boxes.pt', indices='indices.pt')
 ```
