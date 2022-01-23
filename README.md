@@ -3,6 +3,7 @@ For some experiments, you might wanna pass only the `background` of imagenet ima
 
 # How to use:
 ```python
+from costum_imagenet import BackgroundForegroundImageNet
 tr = trans.Compose([trans.Resize(224), trans.CenterCrop(224), trans.ToTensor(), ])
 dataset = BackgroundForegroundImageNet(root='./data/imagenet/train', download=True, transform=tr)
 x, b, f, y = dataset[0]
